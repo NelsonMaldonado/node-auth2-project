@@ -2,8 +2,7 @@ const db = require('../../data/db-config.js');
 
 function find() {
 
-  return db('users').join('roles','user.role_id','=','role.role_id')
-  .select('users.user_id', 'users.username','users.role_name')
+  return db('users').leftJoin('roles','role_id','roles.role_id').select('user_id','username','role_name')
   /**
 
     You will need to join two tables.
